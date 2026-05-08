@@ -176,7 +176,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* DESTINATIONS */}
+      {/* DESTINATIONS
       <section id="destinations" className="py-24 lg:py-32 bg-white text-slate-900">
         <div className="container">
           <div className="max-w-2xl mb-16">
@@ -195,8 +195,47 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      {/* --- DESTINATIONS SECTION START --- */}
+{(() => {
+  const destinations = [
+    { name: "United Kingdom", code: "🇬🇧", tag: "Russell Group & Top Rankings" },
+    { name: "Turkey", code: "🇹🇷", tag: "Scholarships Available" },
+    { name: "Malaysia", code: "🇲🇾", tag: "Affordable Excellence" },
+    { name: "Cyprus", code: "🇨🇾", tag: "EU Recognized Degrees" },
+    { name: "Italy", code: "🇮🇹", tag: "Cultural Heritage" },
+    { name: "Romania", code: "🇷🇴", tag: "Affordable Study" },
+    { name: "Ireland", code: "🇮🇪", tag: "Tech Hub" },
+    { name: "South Korea", code: "🇰🇷", tag: "Modern Excellence" }
+  ];
 
+  return (
+    <section id="destinations" className="py-24 lg:py-32 bg-white text-slate-900">
+      <div className="container">
+        <div className="max-w-2xl mb-16">
+          <span className="text-xs font-semibold text-primary uppercase tracking-wider">Destinations</span>
+          <h2 className="mt-3 text-4xl lg:text-5xl font-bold text-slate-900">Study in the world's <span className="text-gradient">finest cities.</span></h2>
+          <p className="mt-4 text-slate-600 text-lg">We have established partnerships with top-ranked universities across eight carefully chosen destinations.</p>
+        </div>
+        
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          {destinations.map((d, i) => (
+            <div key={i} className="group bg-[hsl(220_55%_12%)] text-white border border-[hsl(220_45%_18%)] rounded-2xl p-6 text-center hover:shadow-elegant hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+              
+              {/* Ye line mobile pe flag chhupa degi (hidden) aur desktop pe dikhayegi (md:block) */}
+              <div className="hidden md:block text-5xl mb-4">{d.code}</div>
+              
+              <h3 className="text-lg font-bold mb-2 text-white">{d.name}</h3>
+              <p className="text-xs text-white/70">{d.tag}</p>
+              <ArrowRight className="w-4 h-4 mx-auto mt-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-all" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+})()}
+{/* --- DESTINATIONS SECTION END --- */}
       {/* CEO */}
       <section id="ceo" className="py-24 lg:py-32">
         <div className="container grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
@@ -300,49 +339,50 @@ const Index = () => {
 </section>
 
       
-{/* TEAM SECTION */}
-{/* --- TEAM SECTION START --- */}
-<section id="team" className="py-24 bg-[#0a1128]">
-  <div className="container mx-auto px-6">
-    {/* Heading Section */}
-    <div className="text-center mb-16">
-      <p className="text-[#f1b434] font-bold tracking-[0.2em] text-sm mb-3 uppercase">
-        Our Experts
-      </p>
-      <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-        Meet Our <span className="text-[#f1b434]">Team</span>
-      </h2>
-    </div>
 
-    {/* 4 Cards Grid Layout */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {[
-        { img: "/munir.jpeg", name: "Muhammad Umair Munir" },
-        { img: "/bilal.jpeg", name: "Adv. Bilal Hassan Bhatti" },
-        { img: "/umar.jpeg", name: "Engr. Ch. Umar Shan" },
-        { img: "/ajmal.jpeg", name: "Prof. Muhammad Ajmal" }
-      ].map((member, index) => (
-        <div key={index} className="group cursor-pointer">
-          <div className="relative overflow-hidden rounded-[2rem] border-2 border-white/5 bg-[#111a36] transition-all duration-500 group-hover:border-[#f1b434]/40 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+
+    {/* --- TEAM SECTION START --- */}
+    <section id="team" className="py-24 bg-[#0a1128]">
+      <div className="container mx-auto px-6">
+        
+        {/* Heading Section */}
+        <div className="text-center mb-16">
+          <p className="text-[#f1b434] font-bold tracking-[0.2em] text-sm mb-3 uppercase">
+            Our Experts
+          </p>
+          <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
+            Meet Our <span className="text-[#f1b434]">Team</span>
+          </h2>
+        </div>
+
+        {/* 2 Cards Centered Layout */}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 max-w-4xl w-full">
             
-            {/* Image Container with Aspect Ratio to keep cards equal */}
-            <div className="aspect-[3/4] overflow-hidden">
-              <img 
-                src={member.img} 
-                alt={member.name} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+            {/* Card 1 */}
+            <div className="group cursor-pointer">
+              <div className="relative overflow-hidden rounded-[2rem] border-2 border-white/5 bg-[#111a36] transition-all duration-500 group-hover:border-[#f1b434]/40 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+                <div className="aspect-[3/4] overflow-hidden">
+                  <img src="/munir.jpeg" alt="Munir" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+              </div>
             </div>
-            
-            {/* Subtle Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a1128] via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-500"></div>
+
+            {/* Card 2 */}
+            <div className="group cursor-pointer">
+              <div className="relative overflow-hidden rounded-[2rem] border-2 border-white/5 bg-[#111a36] transition-all duration-500 group-hover:border-[#f1b434]/40 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+                <div className="aspect-[3/4] overflow-hidden">
+                  <img src="/bilal.jpeg" alt="Bilal" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-{/* --- TEAM SECTION END --- */}
+
+      </div>
+    </section>
+    {/* --- TEAM SECTION END --- */}
       {/* CONTACT */}
      {/* CONTACT SECTION */}
 <section id="contact" className="py-24 lg:py-32 bg-white relative overflow-hidden">
@@ -363,13 +403,13 @@ const Index = () => {
       <div className="grid md:grid-cols-2 gap-8 mb-10">
         
         {/* Email Card */}
-        <a href="mailto:@MentoraEducationConsultancy" className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200">
+        <a href="mailto:mentoraeducationalservices@gmail.com " className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200">
           <div className="w-12 h-12 rounded-xl bg-[#be123c] flex items-center justify-center text-white shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </div>
           <div className="min-w-0">
             <div className="text-xs uppercase tracking-wider text-slate-500 font-medium">Email Us</div>
-            <div className="text-base font-bold text-slate-900 truncate">@MentoraEducationConsultancy</div>
+            <div className="text-base font-bold text-slate-900 truncate">mentoraeducationalservices@gmail.com </div>
           </div>
         </a>
 
@@ -441,11 +481,11 @@ const Index = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent shrink-0" />
-                <span>0315-3085976 </span>
+                <span> 0301 3085975</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-accent shrink-0" />
-                <span>@MentoraEducationConsultancy</span>
+                <span>mentoraeducationalservices@gmail.com </span>
               </li>
             </ul>
           </div>
