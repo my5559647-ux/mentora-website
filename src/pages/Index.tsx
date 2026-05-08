@@ -176,26 +176,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* DESTINATIONS
-      <section id="destinations" className="py-24 lg:py-32 bg-white text-slate-900">
-        <div className="container">
-          <div className="max-w-2xl mb-16">
-            <span className="text-xs font-semibold text-primary uppercase tracking-wider">Destinations</span>
-            <h2 className="mt-3 text-4xl lg:text-5xl font-bold text-slate-900">Study in the world's <span className="text-gradient">finest cities.</span></h2>
-            <p className="mt-4 text-slate-600 text-lg">We have established partnerships with top-ranked universities across eight carefully chosen destinations.</p>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-            {destinations.map((d, i) => (
-              <div key={i} className="group bg-[hsl(220_55%_12%)] text-white border border-[hsl(220_45%_18%)] rounded-2xl p-6 text-center hover:shadow-elegant hover:-translate-y-2 transition-smooth cursor-pointer">
-                <div className="text-5xl mb-4">{d.code}</div>
-                <h3 className="text-lg font-bold mb-2 text-white">{d.name}</h3>
-                <p className="text-xs text-white/70">{d.tag}</p>
-                <ArrowRight className="w-4 h-4 mx-auto mt-4 text-silver opacity-0 group-hover:opacity-100 transition-smooth" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
+      
       {/* --- DESTINATIONS SECTION START --- */}
 {(() => {
   const destinations = [
@@ -218,16 +199,21 @@ const Index = () => {
           <p className="mt-4 text-slate-600 text-lg">We have established partnerships with top-ranked universities across eight carefully chosen destinations.</p>
         </div>
         
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Added items-stretch to make all cards equal height in a row */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
           {destinations.map((d, i) => (
-            <div key={i} className="group bg-[hsl(220_55%_12%)] text-white border border-[hsl(220_45%_18%)] rounded-2xl p-6 text-center hover:shadow-elegant hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+            <div key={i} className="group bg-[hsl(220_55%_12%)] text-white border border-[hsl(220_45%_18%)] rounded-2xl p-6 text-center hover:shadow-elegant hover:-translate-y-2 transition-all duration-300 cursor-pointer flex flex-col justify-center min-h-[160px] md:min-h-[220px]">
               
-              {/* Ye line mobile pe flag chhupa degi (hidden) aur desktop pe dikhayegi (md:block) */}
+              {/* Flag Section */}
               <div className="hidden md:block text-5xl mb-4">{d.code}</div>
               
-              <h3 className="text-lg font-bold mb-2 text-white">{d.name}</h3>
-              <p className="text-xs text-white/70">{d.tag}</p>
-              <ArrowRight className="w-4 h-4 mx-auto mt-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-all" />
+              {/* Content Section - flex-grow ensures even distribution */}
+              <div className="flex-grow flex flex-col justify-center">
+                <h3 className="text-lg font-bold mb-2 text-white leading-tight">{d.name}</h3>
+                <p className="text-xs text-white/70 line-clamp-2">{d.tag}</p>
+              </div>
+
+              <ArrowRight className="w-4 h-4 mx-auto mt-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-all shrink-0" />
             </div>
           ))}
         </div>
@@ -403,16 +389,20 @@ const Index = () => {
       <div className="grid md:grid-cols-2 gap-8 mb-10">
         
         {/* Email Card */}
-        <a href="mailto:mentoraeducationalservices@gmail.com " className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200">
-          <div className="w-12 h-12 rounded-xl bg-[#be123c] flex items-center justify-center text-white shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </div>
-          <div className="min-w-0">
-            <div className="text-xs uppercase tracking-wider text-slate-500 font-medium">Email Us</div>
-            <div className="text-base font-bold text-slate-900 truncate">mentoraeducationalservices@gmail.com </div>
-          </div>
-        </a>
-
+<a href="mailto:mentoraeducationalservices@gmail.com" className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200">
+  <div className="w-12 h-12 rounded-xl bg-[#be123c] flex items-center justify-center text-white shrink-0">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect width="20" height="16" x="2" y="4" rx="2"/>
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </div>
+  <div className="min-w-0 flex-1">
+    <div className="text-xs uppercase tracking-wider text-slate-500 font-medium">Email Us</div>
+    <div className="text-sm md:text-base font-bold text-slate-900 break-all sm:break-normal">
+      mentoraeducationalservices@gmail.com
+    </div>
+  </div>
+</a>
         {/* Call Card */}
         <a href="tel:03153085976" className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200">
           <div className="w-12 h-12 rounded-xl bg-[#be123c] flex items-center justify-center text-white shrink-0">
