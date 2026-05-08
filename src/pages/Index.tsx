@@ -221,33 +221,88 @@ const Index = () => {
     </section>
   );
 })()}
-{/* --- DESTINATIONS SECTION END --- */}
-      {/* CEO */}
-      <section id="ceo" className="py-24 lg:py-32">
-        <div className="container grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-2 relative">
-            <div className="absolute inset-0 bg-royal-gradient rounded-3xl -rotate-3 opacity-15 blur-2xl" />
-            <div className="relative rounded-3xl overflow-hidden border border-border shadow-elegant">
-              <img src="/ceo.jpeg" alt="Muhammad Awais Munir" className="w-full h-full object-cover" />
-            </div>
-          </div>
-          <div className="lg:col-span-3">
-            <span className="text-xs font-semibold text-primary uppercase tracking-wider">Message from the CEO</span>
-            <Quote className="w-12 h-12 text-primary/30 mt-6" />
-            <blockquote className="mt-4 text-2xl lg:text-3xl font-medium leading-snug text-foreground" style={{ fontFamily: "'Fraunces', serif" }}>
-              "At Mentora, we don't just process applications — we shape destinies. Every student deserves a mentor who believes in their dream as much as they do. That belief is the foundation of everything we build."
-            </blockquote>
-            <div className="mt-8 flex items-center gap-4">
-              <div className="w-1 h-14 bg-royal-gradient rounded-full" />
-              <div>
-                <div className="text-lg font-bold">Muhammad Awais Munir</div>
-                <div className="text-sm text-muted-foreground">Founder & CEO, Mentora</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-  
+
+{/* ===================================================================================
+    MENTORA CEO & TEAM SECTION (Scroll Target: #ceo)
+    =================================================================================== */}
+<section id="ceo" className="bg-[#050a18] py-16 lg:py-24 px-3 lg:px-4 overflow-hidden scroll-mt-20">
+  <div className="max-w-7xl mx-auto">
+    
+    {/* 1. CEO MESSAGE AREA (Premium Writing) */}
+    <div className="mb-20 text-center lg:text-left max-w-5xl mx-auto lg:mx-0">
+      <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
+        <div className="w-1 h-6 bg-red-600"></div>
+        <span className="text-red-600 font-bold tracking-[0.3em] text-[10px] lg:text-xs uppercase block">
+          Message From The CEO
+        </span>
+      </div>
+      
+      <h2 className="text-white text-2xl lg:text-[42px] leading-[1.2] font-semibold mb-6 tracking-tight px-2 lg:px-0">
+        "At Mentora, we don't just process applications — <br className="hidden lg:block"/>
+        <span className="text-red-600 italic font-serif">we shape destinies.</span>"
+      </h2>
+      
+      <p className="text-slate-300 text-base lg:text-xl font-medium leading-relaxed opacity-90 px-4 lg:px-0">
+        Every student deserves a mentor who believes in their dream as much as they do. 
+        That belief is the foundation of everything we build.
+      </p>
+    </div>
+
+    {/* 2. CENTERED HEADING (No Line) */}
+    <div className="text-center mb-12">
+        <h3 className="text-3xl lg:text-5xl font-bold text-white uppercase tracking-tighter">
+          Meet Our <span className="text-yellow-500">Team</span>
+        </h3>
+    </div>
+
+    {/* 3. TEAM CARDS GRID (Mobile: 2 Columns | Desktop: 4 Columns) */}
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
+      
+      {/* CARD 1: Muhammad Awais Munir */}
+      <div className="group relative rounded-lg lg:rounded-xl overflow-hidden transition-all duration-500 hover:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
+        <img 
+          src="/ceo.jpeg" 
+          alt="Muhammad Awais Munir" 
+          className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      {/* CARD 2: Engineer Ch. Umar Shan */}
+      <div className="group relative rounded-lg lg:rounded-xl overflow-hidden transition-all duration-500 hover:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
+        <img 
+          src="/munir.jpeg" 
+          alt="Engineer Ch. Umar Shan" 
+          className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      {/* CARD 3: Adv. Bilal Hassan Bhatti */}
+      <div className="group relative rounded-lg lg:rounded-xl overflow-hidden transition-all duration-500 hover:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
+        <img 
+          src="/bilal.jpeg" 
+          alt="Adv. Bilal Hassan Bhatti" 
+          className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      {/* CARD 4: Wajahat Ullah Wasti */}
+      <div className="group relative rounded-lg lg:rounded-xl overflow-hidden transition-all duration-500 hover:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
+        <img 
+          src="/wasti.jpeg" 
+          alt="Wajahat Ullah Wasti" 
+          className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
       {/* WHO WE ARE / ABOUT SECTION */}
 <section id="about" className="py-20 bg-white scroll-mt-20">
   <div className="container mx-auto px-4 md:px-12">
@@ -323,52 +378,6 @@ const Index = () => {
     </div>
   </div>
 </section>
-
-      
-
-
-    {/* --- TEAM SECTION START --- */}
-    <section id="team" className="py-24 bg-[#0a1128]">
-      <div className="container mx-auto px-6">
-        
-        {/* Heading Section */}
-        <div className="text-center mb-16">
-          <p className="text-[#f1b434] font-bold tracking-[0.2em] text-sm mb-3 uppercase">
-            Our Experts
-          </p>
-          <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-            Meet Our <span className="text-[#f1b434]">Team</span>
-          </h2>
-        </div>
-
-        {/* 2 Cards Centered Layout */}
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 max-w-4xl w-full">
-            
-            {/* Card 1 */}
-            <div className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-[2rem] border-2 border-white/5 bg-[#111a36] transition-all duration-500 group-hover:border-[#f1b434]/40 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
-                <div className="aspect-[3/4] overflow-hidden">
-                  <img src="/munir.jpeg" alt="Munir" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-[2rem] border-2 border-white/5 bg-[#111a36] transition-all duration-500 group-hover:border-[#f1b434]/40 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
-                <div className="aspect-[3/4] overflow-hidden">
-                  <img src="/bilal.jpeg" alt="Bilal" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-    {/* --- TEAM SECTION END --- */}
       {/* CONTACT */}
      {/* CONTACT SECTION */}
 <section id="contact" className="py-24 lg:py-32 bg-white relative overflow-hidden">
