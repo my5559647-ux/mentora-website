@@ -177,43 +177,55 @@ const Index = () => {
       </section>
 
       
-      {/* --- DESTINATIONS SECTION START --- */}
+{/* --- DESTINATIONS SECTION START --- */}
 {(() => {
   const destinations = [
-    { name: "United Kingdom", code: "🇬🇧", tag: "Russell Group & Top Rankings" },
-    { name: "Turkey", code: "🇹🇷", tag: "Scholarships Available" },
-    { name: "Malaysia", code: "🇲🇾", tag: "Affordable Excellence" },
-    { name: "Cyprus", code: "🇨🇾", tag: "EU Recognized Degrees" },
-    { name: "Italy", code: "🇮🇹", tag: "Cultural Heritage" },
-    { name: "Romania", code: "🇷🇴", tag: "Affordable Study" },
-    { name: "Ireland", code: "🇮🇪", tag: "Tech Hub" },
-    { name: "South Korea", code: "🇰🇷", tag: "Modern Excellence" }
+    { name: "United Kingdom", code: "gb", tag: "Russell Group & Top Rankings" },
+    { name: "Turkey", code: "tr", tag: "Scholarships Available" },
+    { name: "Malaysia", code: "my", tag: "Affordable Excellence" },
+    { name: "Cyprus", code: "cy", tag: "EU Recognized Degrees" },
+    { name: "Italy", code: "it", tag: "Cultural Heritage" },
+    { name: "Romania", code: "ro", tag: "Affordable Study" },
+    { name: "Ireland", code: "ie", tag: "Tech Hub" },
+    { name: "South Korea", code: "kr", tag: "Modern Excellence" }
   ];
 
   return (
     <section id="destinations" className="py-24 lg:py-32 bg-white text-slate-900">
-      <div className="container">
+      <div className="container px-4 mx-auto">
+        {/* Header */}
         <div className="max-w-2xl mb-16">
-          <span className="text-xs font-semibold text-primary uppercase tracking-wider">Destinations</span>
-          <h2 className="mt-3 text-4xl lg:text-5xl font-bold text-slate-900">Study in the world's <span className="text-gradient">finest cities.</span></h2>
-          <p className="mt-4 text-slate-600 text-lg">We have established partnerships with top-ranked universities across eight carefully chosen destinations.</p>
+          <span className="text-xs font-semibold text-[#be123c] uppercase tracking-wider">Destinations</span>
+          <h2 className="mt-3 text-4xl lg:text-5xl font-bold text-slate-900">
+            Study in the world's <span className="text-[#be123c]">finest cities.</span>
+          </h2>
+          <p className="mt-4 text-slate-600 text-lg">We have established partnerships with top-ranked universities across eight chosen destinations.</p>
         </div>
         
-        {/* Added items-stretch to make all cards equal height in a row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+        {/* Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {destinations.map((d, i) => (
-            <div key={i} className="group bg-[hsl(220_55%_12%)] text-white border border-[hsl(220_45%_18%)] rounded-2xl p-6 text-center hover:shadow-elegant hover:-translate-y-2 transition-all duration-300 cursor-pointer flex flex-col justify-center min-h-[160px] md:min-h-[220px]">
+            <div key={i} className="group bg-[#0a1128] text-white border border-slate-800 rounded-2xl p-6 text-center hover:bg-[#0f1a3a] transition-all duration-300 flex flex-col items-center min-h-[220px]">
               
-              {/* Flag Section */}
-              <div className="hidden md:block text-5xl mb-4">{d.code}</div>
+              {/* Simple Flag Image */}
+              <div className="mb-6 w-20 h-14 overflow-hidden rounded shadow-lg border border-white/10">
+                <img 
+                  src={`https://flagcdn.com/w320/${d.code}.png`} 
+                  alt={d.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               
-              {/* Content Section - flex-grow ensures even distribution */}
               <div className="flex-grow flex flex-col justify-center">
-                <h3 className="text-lg font-bold mb-2 text-white leading-tight">{d.name}</h3>
-                <p className="text-xs text-white/70 line-clamp-2">{d.tag}</p>
+                <h3 className="text-lg font-bold mb-1 text-white">{d.name}</h3>
+                <p className="text-[10px] text-slate-400 font-medium uppercase tracking-widest">{d.tag}</p>
               </div>
 
-              <ArrowRight className="w-4 h-4 mx-auto mt-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-all shrink-0" />
+              {/* Arrow Icon */}
+              <div className="mt-4 opacity-30 group-hover:opacity-100 transition-opacity">
+                <ArrowRight className="w-5 h-5 text-white" />
+              </div>
+
             </div>
           ))}
         </div>
@@ -398,30 +410,34 @@ const Index = () => {
       <div className="grid md:grid-cols-2 gap-8 mb-10">
         
         {/* Email Card */}
-<a href="mailto:mentoraeducationalservices@gmail.com" className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200">
-  <div className="w-12 h-12 rounded-xl bg-[#be123c] flex items-center justify-center text-white shrink-0">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect width="20" height="16" x="2" y="4" rx="2"/>
-      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-    </svg>
-  </div>
-  <div className="min-w-0 flex-1">
-    <div className="text-xs uppercase tracking-wider text-slate-500 font-medium">Email Us</div>
-    <div className="text-sm md:text-base font-bold text-slate-900 break-all sm:break-normal">
-      mentoraeducationalservices@gmail.com
-    </div>
-  </div>
-</a>
-        {/* Call Card */}
-        <a href="tel:03153085976" className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200">
+        <a href="mailto:mentoraeducationalservices@gmail.com" className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200">
+          <div className="w-12 h-12 rounded-xl bg-[#be123c] flex items-center justify-center text-white shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </div>
+          <div className="min-w-0 flex-1">
+            <div className="text-xs uppercase tracking-wider text-slate-500 font-medium">Email Us</div>
+            <div className="text-sm md:text-base font-bold text-slate-900 break-all sm:break-normal">
+              mentoraeducationalservices@gmail.com
+            </div>
+          </div>
+        </a>
+
+        {/* Call Card with Two Numbers */}
+        <div className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200 cursor-default">
           <div className="w-12 h-12 rounded-xl bg-[#be123c] flex items-center justify-center text-white shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
           <div className="min-w-0">
             <div className="text-xs uppercase tracking-wider text-slate-500 font-medium">Call Us</div>
-            <div className="text-base font-bold text-slate-900 truncate">0315-3085976</div>
+            <div className="text-base font-bold text-slate-900 flex flex-col leading-tight">
+              <a href="tel:03153085976" className="hover:text-[#be123c] transition-colors">0315-3085976</a>
+              <a href="tel:03001234567" className="hover:text-[#be123c] transition-colors">0301 3085975</a>
+            </div>
           </div>
-        </a>
+        </div>
 
       </div>
 
