@@ -4,7 +4,7 @@ import {
   Facebook, Instagram, Linkedin, PlaneTakeoff,
   Menu, X // <-- Ye do icons add kiye
 } from "lucide-react";
-import { useState } from "react"; // <-- Ye import add kiya
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-student.jpg";
 import ceoImg from "@/assets/ceo-portrait.jpg";
@@ -234,13 +234,13 @@ const Index = () => {
   );
 })()}
 
-{/* ===================================================================================
+{/* 
     MENTORA CEO & TEAM SECTION (Scroll Target: #ceo)
-    =================================================================================== */}
+    */}
 <section id="ceo" className="bg-[#050a18] py-16 lg:py-24 px-3 lg:px-4 overflow-hidden scroll-mt-20">
   <div className="max-w-7xl mx-auto">
     
-    {/* 1. CEO MESSAGE AREA (Premium Writing) */}
+    {/* 1. CEO MESSAGE AREA  */}
     <div className="mb-20 text-center lg:text-left max-w-5xl mx-auto lg:mx-0">
       <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
         <div className="w-1 h-6 bg-red-600"></div>
@@ -260,14 +260,14 @@ const Index = () => {
       </p>
     </div>
 
-    {/* 2. CENTERED HEADING (No Line) */}
+    {/* 2. CENTERED HEADING  */}
     <div className="text-center mb-12">
         <h3 className="text-3xl lg:text-5xl font-bold text-white uppercase tracking-tighter">
           Meet Our <span className="text-yellow-500">Team</span>
         </h3>
     </div>
 
-    {/* 3. TEAM CARDS GRID (Mobile: 2 Columns | Desktop: 4 Columns) */}
+    {/* 3. TEAM CARDS GRID  */}
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
       
       {/* CARD 1: Muhammad Awais Munir */}
@@ -390,7 +390,7 @@ const Index = () => {
     </div>
   </div>
 </section>
-      {/* CONTACT */}
+      
      {/* CONTACT SECTION */}
 <section id="contact" className="py-24 lg:py-32 bg-white relative overflow-hidden">
   <div className="container relative mx-auto px-4">
@@ -425,7 +425,7 @@ const Index = () => {
           </div>
         </a>
 
-        {/* Call Card with Two Numbers */}
+        {/* Call Card  */}
         <div className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200 cursor-default">
           <div className="w-12 h-12 rounded-xl bg-[#be123c] flex items-center justify-center text-white shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
