@@ -42,23 +42,28 @@ const Index = () => {
       <header className="fixed top-0 inset-x-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/40">
         <div className="container flex items-center justify-between h-20 px-4">
           <a href="#" className="flex items-center gap-3" aria-label="Mentora — Education Consultancy">
-            <span className="w-11 h-11 rounded-xl bg-primary grid place-items-center shadow-soft shrink-0">
-              <Plane className="w-6 h-6 text-[hsl(220_85%_55%)] rotate-45" strokeWidth={2.25} />
-            </span>
-            <span className="flex flex-col leading-none">
-              <span
-                className="text-2xl md:text-[1.6rem] font-bold tracking-[0.18em] text-white"
-                style={{ fontFamily: "'Fraunces', Georgia, serif" }}
-              >
-                MENTORA
-              </span>
-              <span
-                className="mt-1 text-[0.62rem] md:text-[0.68rem] font-semibold tracking-[0.32em] text-accent uppercase"
-                style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }}
-              >
-                Education Consultancy
-              </span>
-            </span>
+          <div className="flex items-center gap-2 md:gap-4">
+  {/* Logo Container: Balanced padding and centering */}
+  <div className="relative h-11 w-11 md:h-14 md:w-14 overflow-hidden rounded-lg md:rounded-xl bg-white border border-[#D4AF37]/30 shadow-md flex items-center justify-center flex-shrink-0 p-1">
+    <img 
+      src="/logo icon.jpeg" 
+      alt="Mentora Logo" 
+      /* object-center aur p-1 se niche/upro se space barabar ho jayegi */
+      className="h-full w-full object-contain scale-[1.4] object-center transition-transform" 
+    />
+  </div>
+
+  {/* Text Section: Clean and single (No double text) */}
+  <div className="flex flex-col justify-center">
+    <h1 className="text-white font-bold text-lg md:text-2xl tracking-tighter leading-none uppercase">
+      Mentora
+    </h1>
+    <p className="text-[#D4AF37] text-[7px] md:text-[10px] tracking-[0.15em] md:tracking-[0.2em] font-semibold mt-1 uppercase">
+      Education Consultancy
+    </p>
+  </div>
+</div>
+        
           </a>
 
           {/* Desktop Nav */}
@@ -433,8 +438,8 @@ const Index = () => {
           <div className="min-w-0">
             <div className="text-xs uppercase tracking-wider text-slate-500 font-medium">Call Us</div>
             <div className="text-base font-bold text-slate-900 flex flex-col leading-tight">
-              <a href="tel:03153085976" className="hover:text-[#be123c] transition-colors">0315-3085976</a>
-              <a href="tel:03001234567" className="hover:text-[#be123c] transition-colors">0301 3085975</a>
+              <a href="tel:03153085976" className="hover:text-[#be123c] transition-colors">03153085976</a>
+              <a href="tel:03001234567" className="hover:text-[#be123c] transition-colors">03013085975</a>
             </div>
           </div>
         </div>
