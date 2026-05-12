@@ -48,12 +48,12 @@ const Index = () => {
     <img 
       src="/logo icon.jpeg" 
       alt="Mentora Logo" 
-      /* object-center aur p-1 se niche/upro se space barabar ho jayegi */
+     
       className="h-full w-full object-contain scale-[1.4] object-center transition-transform" 
     />
   </div>
 
-  {/* Text Section: Clean and single (No double text) */}
+   
   <div className="flex flex-col justify-center">
     <h1 className="text-white font-bold text-lg md:text-2xl tracking-tighter leading-none uppercase">
       Mentora
@@ -497,7 +497,7 @@ const Index = () => {
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-accent shrink-0" />
-                <span>Main Bazaar Road,<br />Hafizabad, Punjab, Pakistan</span>
+                <span>Usama Block,47- Sunny Garden ,<br />Hafizabad, Punjab, Pakistan</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent shrink-0" />
