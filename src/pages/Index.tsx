@@ -258,41 +258,48 @@ const Index = () => {
     
     {/* Grid Layout - 4 Columns */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {studentVideos.map((video) => (
+      {studentVideos && studentVideos.map((video) => (
         <div 
           key={video.id} 
           className="relative group rounded-xl overflow-hidden shadow-lg bg-black h-[500px]"
         >
           {/* Video Element */}
           <video
-  src={video.videoSrc}
-  className="w-full h-full object-cover"
-  loop
-  playsInline
-  muted // Shuruat mein muted rahega taake auto-play block na ho
-  onMouseOver={(e) => {
-    const v = e.currentTarget as HTMLVideoElement;
-    v.play().catch(err => console.log("Playback failed:", err));
-  }}
-  onMouseOut={(e) => {
-    const v = e.currentTarget as HTMLVideoElement;
-    v.pause();
-  }}
-  // Agar aap chahte hain ke user voice on kar sake, to controls enable kar dein
-  controls={false} 
-  onClick={(e) => {
-    const v = e.currentTarget as HTMLVideoElement;
-    v.muted = !v.muted; // Click karne par sound on/off hogi
-  }}
-/>
+            src={video.videoSrc}
+            className="w-full h-full object-cover"
+            loop
+            playsInline
+            muted // Shuruat mein muted rahega taake auto-play block na ho
+            onMouseOver={(e) => {
+              const v = e.currentTarget as HTMLVideoElement;
+              v.play().catch(err => console.log("Playback failed:", err));
+            }}
+            onMouseOut={(e) => {
+              const v = e.currentTarget as HTMLVideoElement;
+              v.pause();
+            }}
+            // Agar aap chahte hain ke user voice on kar sake, to controls enable kar dein
+            controls={false} 
+            onClick={(e) => {
+              const v = e.currentTarget as HTMLVideoElement;
+              v.muted = !v.muted; // Click karne par sound on/off hogi
+            }}
+          />
 
           {/* Bottom Gradient Overlay (Text readability ke liye) */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
 
           {/* Play Icon Overlay (Center) */}
-          <div className="absolute inset-0 flex items-center justify-center group-hover:hidden transition-all">
+          <div className="absolute inset-0 flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
             <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full border border-white/30">
-              <Play className="w-8 h-8 text-white fill-white" />
+              {/* Play icon wrapper */}
+              <svg 
+                className="w-8 h-8 text-white fill-white" 
+                viewBox="0 0 24 24" 
+                fill="currentColor"
+              >
+                <path d="M8 5v14l11-7z"/>
+              </svg>
             </div>
           </div>
 
@@ -301,18 +308,19 @@ const Index = () => {
             <h3 className="text-white font-semibold text-lg leading-tight mb-2">
               {video.title}
             </h3>
-           <div className="flex items-center gap-2">
-   <div className="w-8 h-8 rounded-full bg-[#DC2626] flex items-center justify-center text-[12px] text-white font-bold border border-white/20 shadow-md">
-     {video.author[0]}
-   </div>
-   <p className="text-white font-medium text-sm">{video.author}</p>
-</div>
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-[#DC2626] flex items-center justify-center text-[12px] text-white font-bold border border-white/20 shadow-md">
+                {video.author ? video.author[0] : 'M'}
+              </div>
+              <p className="text-white font-medium text-sm">{video.author}</p>
+            </div>
           </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+{/* Video Section End */}
       
 {/* --- DESTINATIONS SECTION START --- */}
 {(() => {
