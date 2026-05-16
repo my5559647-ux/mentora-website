@@ -1,8 +1,8 @@
 import { 
-  GraduationCap, FileCheck, Plane, LifeBuoy, ArrowRight, Sparkles, 
+  GraduationCap, FileCheck, Plane, LifeBuoy, ArrowRight, Sparkles,
   Phone, Mail, MapPin, Globe2, Users, Trophy, Quote,
   Facebook, Instagram, Linkedin, PlaneTakeoff, Youtube, Music2, MessageCircle,
-  Menu, X 
+  Menu, X, Play // Maine Play yahan add kar diya hai
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -32,9 +32,40 @@ const destinations = [
   { name: "United States", code: "🇺🇸", tag: "Ivy League & Innovation" },
   { name: "Australia", code: "🇦🇺", tag: "Top Ranked Universities" },
 ];
+const studentVideos = [
+  {
+    id: 1,
+    title: "Student in Mentora",
+    author: "Muhammad Shalikh",
+    videoSrc: "/v1.mp4",
+    thumbnail: "/heighlight5.jpeg",
+  },
+  {
+    id: 2,
+    title: "Student in Mentora",
+    author: "Rai Ali Ejaaz",
+    videoSrc: "/v2.mp4",
+    thumbnail: "/heighlight6.jpeg",
+  },
+  {
+    id: 3,
+    title: "Student in Mentora",
+    author: "Umair Hameed",
+    videoSrc: "/v3.mp4",
+    thumbnail: "/heighlight7.jpeg",
+  },
+  {
+    id: 4,
+    title: "Student in Mentora",
+    author: "Dawood Mustafa",
+    videoSrc: "/v4.mp4",
+    thumbnail: "/heighlight8.jpeg",
+  }
+];
 
 const Index = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // <-- Menu state
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showTurkeyDetails, setShowTurkeyDetails] = useState(false); // <-- Menu state
 
   return (
     <div className="min-h-screen bg-background">
@@ -217,6 +248,71 @@ const Index = () => {
     </div>
   </div>
 </section>
+
+{/* Video Section Start */}
+<section className="py-16 bg-[#F8F9FA]"> {/* Professional Light Gray Background */}
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold mb-10 text-gray-900 text-center">
+      Hear from our Students
+    </h2>
+    
+    {/* Grid Layout - 4 Columns */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {studentVideos.map((video) => (
+        <div 
+          key={video.id} 
+          className="relative group rounded-xl overflow-hidden shadow-lg bg-black h-[500px]"
+        >
+          {/* Video Element */}
+          <video
+  src={video.videoSrc}
+  className="w-full h-full object-cover"
+  loop
+  playsInline
+  muted // Shuruat mein muted rahega taake auto-play block na ho
+  onMouseOver={(e) => {
+    const v = e.currentTarget as HTMLVideoElement;
+    v.play().catch(err => console.log("Playback failed:", err));
+  }}
+  onMouseOut={(e) => {
+    const v = e.currentTarget as HTMLVideoElement;
+    v.pause();
+  }}
+  // Agar aap chahte hain ke user voice on kar sake, to controls enable kar dein
+  controls={false} 
+  onClick={(e) => {
+    const v = e.currentTarget as HTMLVideoElement;
+    v.muted = !v.muted; // Click karne par sound on/off hogi
+  }}
+/>
+
+          {/* Bottom Gradient Overlay (Text readability ke liye) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+
+          {/* Play Icon Overlay (Center) */}
+          <div className="absolute inset-0 flex items-center justify-center group-hover:hidden transition-all">
+            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full border border-white/30">
+              <Play className="w-8 h-8 text-white fill-white" />
+            </div>
+          </div>
+
+          {/* Text Content (Bottom) */}
+          <div className="absolute bottom-0 left-0 right-0 p-5 pointer-events-none">
+            <h3 className="text-white font-semibold text-lg leading-tight mb-2">
+              {video.title}
+            </h3>
+           <div className="flex items-center gap-2">
+   <div className="w-8 h-8 rounded-full bg-[#DC2626] flex items-center justify-center text-[12px] text-white font-bold border border-white/20 shadow-md">
+     {video.author[0]}
+   </div>
+   <p className="text-white font-medium text-sm">{video.author}</p>
+</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
       
 {/* --- DESTINATIONS SECTION START --- */}
 {(() => {
@@ -234,43 +330,151 @@ const Index = () => {
   return (
     <section id="destinations" className="py-24 lg:py-32 bg-white text-slate-900">
       <div className="container px-4 mx-auto">
-        {/* Header */}
+        {/* Section Header */}
         <div className="max-w-2xl mb-16">
           <span className="text-xs font-semibold text-[#be123c] uppercase tracking-wider">Destinations</span>
-          <h2 className="mt-3 text-4xl lg:text-5xl font-bold text-slate-900">
+          <h2 className="mt-3 text-4xl lg:text-5xl font-bold text-slate-900 italic">
             Study in the world's <span className="text-[#be123c]">finest cities.</span>
           </h2>
           <p className="mt-4 text-slate-600 text-lg">We have established partnerships with top-ranked universities across eight chosen destinations.</p>
         </div>
         
-        {/* Grid */}
+        {/* Flag Cards Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {destinations.map((d, i) => (
-            <div key={i} className="group bg-[#0a1128] text-white border border-slate-800 rounded-2xl p-6 text-center hover:bg-[#0f1a3a] transition-all duration-300 flex flex-col items-center min-h-[220px]">
-              
-              {/* Simple Flag Image */}
-              <div className="mb-6 w-20 h-14 overflow-hidden rounded shadow-lg border border-white/10">
+            <div 
+              key={i} 
+              onClick={() => d.name === "Turkey" && setShowTurkeyDetails(true)}
+              className={`group bg-[#0a1128] text-white border border-slate-800 rounded-2xl p-8 text-center hover:bg-[#0f1a3a] transition-all duration-500 flex flex-col items-center min-h-[260px] shadow-2xl ${d.name === "Turkey" ? "cursor-pointer ring-1 ring-white/5 hover:ring-[#be123c]/50" : ""}`}
+            >
+              {/* Flag Image - Professional Size */}
+              <div className="mb-8 w-24 h-16 overflow-hidden rounded-lg shadow-2xl border border-white/10 group-hover:scale-110 transition-transform duration-500">
                 <img 
                   src={`https://flagcdn.com/w320/${d.code}.png`} 
-                  alt={d.name}
-                  className="w-full h-full object-cover"
+                  alt={d.name} 
+                  className="w-full h-full object-cover" 
                 />
               </div>
               
               <div className="flex-grow flex flex-col justify-center">
-                <h3 className="text-lg font-bold mb-1 text-white">{d.name}</h3>
-                <p className="text-[10px] text-slate-400 font-medium uppercase tracking-widest">{d.tag}</p>
+                <h3 className="text-2xl font-bold mb-2 text-white italic tracking-tight">{d.name}</h3>
+                <p className="text-[11px] text-slate-400 font-bold uppercase tracking-[0.2em]">{d.tag}</p>
               </div>
 
               {/* Arrow Icon */}
-              <div className="mt-4 opacity-30 group-hover:opacity-100 transition-opacity">
-                <ArrowRight className="w-5 h-5 text-white" />
+              <div className="mt-6 opacity-20 group-hover:opacity-100 transition-opacity">
+                <ArrowRight className="w-6 h-6 text-[#be123c]" />
               </div>
-
             </div>
           ))}
         </div>
       </div>
+
+      {/* --- PROFESSIONAL TURKEY MODAL POPUP --- */}
+      {showTurkeyDetails && (
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-[#020617]/95 backdrop-blur-md p-4">
+          <div className="relative bg-[#0a1128] w-full max-w-6xl h-[85vh] overflow-hidden rounded-[40px] border border-white/10 shadow-2xl flex flex-col md:flex-row animate-in fade-in zoom-in duration-300">
+            
+            {/* Left Panel: Aesthetic Brand Image */}
+            <div className="hidden md:block w-2/5 relative h-full bg-[#020617]">
+              <img 
+                src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000" 
+                className="h-full w-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-1000" 
+                alt="Turkey Campus"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1128] via-transparent"></div>
+              <div className="absolute bottom-12 left-10 right-10">
+                <div className="flex items-center gap-4 mb-6">
+                    <img src="https://flagcdn.com/w160/tr.png" className="w-16 rounded shadow-2xl border border-white/20" alt="Turkey" />
+                    <div className="h-px flex-1 bg-white/20"></div>
+                </div>
+                <h2 className="text-6xl font-black text-white italic tracking-tighter leading-none">TURKEY</h2>
+                <p className="text-[#be123c] font-bold mt-2 uppercase text-[10px] tracking-[0.4em]">Visa Documentation Guide</p>
+              </div>
+            </div>
+
+            {/* Right Panel: Managed Details */}
+            <div className="flex-1 overflow-y-auto p-8 md:p-16 bg-[#0a1128] custom-scrollbar">
+              {/* Close Button */}
+              <button 
+                onClick={() => setShowTurkeyDetails(false)} 
+                className="absolute top-8 right-10 text-white/40 hover:text-white transition-all bg-white/5 p-2 rounded-full z-50"
+              >
+                <X className="w-8 h-8" />
+              </button>
+
+              <div className="space-y-16">
+                {/* 1. Identity Documents (Red Theme) */}
+                <div className="animate-in slide-in-from-bottom-4 duration-500">
+                  <h3 className="text-[#be123c] font-black text-[10px] uppercase tracking-[0.5em] mb-8 flex items-center gap-4">
+                    <span className="w-10 h-px bg-[#be123c]"></span> Identity & Application
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {[
+                      "Visa Application & Interview Form", "Valid Passport (Color Scan)", 
+                      "CNIC Student & Sponsor", "Family Registration (FRC)", 
+                      "Recent Travel History", "Photo (5x6 Turkish Format)"
+                    ].map(item => (
+                      <div key={item} className="p-5 rounded-2xl bg-white/5 border border-white/5 text-gray-300 flex items-center gap-4 group hover:border-[#be123c]/40 transition-all">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#be123c] shadow-[0_0_10px_#be123c]"></div>
+                        <span className="text-[13px] font-medium tracking-wide group-hover:text-white">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 2. Financial Sponsorship (Mustard/Gold Theme) */}
+                <div className="bg-[#020617] p-10 rounded-[40px] border border-[#fbbf24]/20 shadow-inner animate-in slide-in-from-bottom-6 duration-700">
+                  <h3 className="text-[#fbbf24] font-black text-[10px] uppercase tracking-[0.5em] mb-10 text-center">Financial Sponsorship</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div className="space-y-5">
+                      <p className="text-white font-black text-[10px] uppercase tracking-widest border-b border-white/10 pb-3 italic">Income Proof</p>
+                      <ul className="text-[13px] text-gray-400 space-y-4">
+                        <li>• Business Reg / Salary Slips (6 Months)</li>
+                        <li>• Last 2 Years Income Tax Returns</li>
+                        <li>• NTN & Tax Certificates (Both)</li>
+                      </ul>
+                    </div>
+                    <div className="space-y-5">
+                      <p className="text-white font-black text-[10px] uppercase tracking-widest border-b border-white/10 pb-3 italic">Bank Records</p>
+                      <ul className="text-[13px] text-gray-400 space-y-4">
+                        <li>• Bank Statement (6 Months)</li>
+                        <li>• Account Maintenance Letter</li>
+                        <li>• Affidavit of Support (Notary)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. Educational & Logistics (Blue/White Theme) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-10">
+                   <div className="p-8 rounded-[30px] bg-white/5 border border-white/10 group hover:border-white/20 transition-all">
+                      <h4 className="text-white font-black text-[10px] uppercase tracking-widest mb-6 border-b border-white/10 pb-2 italic">Educational Documents</h4>
+                      <ul className="text-[13px] text-gray-400 space-y-3">
+                        <li>• University Offer & Acceptance Letter</li>
+                        <li>• Original Attested Documents</li>
+                        <li>• Statement of Purpose (SOP)</li>
+                      </ul>
+                   </div>
+                   <div className="p-8 rounded-[30px] bg-white/5 border border-white/10 group hover:border-white/20 transition-all">
+                      <h4 className="text-white font-black text-[10px] uppercase tracking-widest mb-6 border-b border-white/10 pb-2 italic">Travel & Logistics</h4>
+                      <ul className="text-[13px] text-gray-400 space-y-3">
+                        <li>• Original SWIFT Transfer Receipt</li>
+                        <li>• Flight & Hotel Reservation</li>
+                        <li>• Health Insurance</li>
+                      </ul>
+                   </div>
+                </div>
+              </div>
+
+              {/* Branding Footer */}
+              <div className="mt-10 pt-10 border-t border-white/5 text-center">
+                <p className="text-[10px] text-gray-500 uppercase tracking-[0.5em] font-bold">Mentora Education Consultancy</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 })()}
