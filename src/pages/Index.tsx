@@ -263,13 +263,14 @@ const Index = () => {
           key={video.id} 
           className="relative group rounded-xl overflow-hidden shadow-lg bg-black h-[500px]"
         >
-          {/* Video Element */}
+          {/* Video Element without poster/thumbnail image */}
           <video
             src={video.videoSrc}
             className="w-full h-full object-cover"
             loop
             playsInline
-            muted // Shuruat mein muted rahega taake auto-play block na ho
+            muted // Autoplay block hone se bachane ke liye zaroori hai
+            preload="auto" // Live site par browser ko force karega video load karne ke liye
             onMouseOver={(e) => {
               const v = e.currentTarget as HTMLVideoElement;
               v.play().catch(err => console.log("Playback failed:", err));
@@ -278,7 +279,6 @@ const Index = () => {
               const v = e.currentTarget as HTMLVideoElement;
               v.pause();
             }}
-            // Agar aap chahte hain ke user voice on kar sake, to controls enable kar dein
             controls={false} 
             onClick={(e) => {
               const v = e.currentTarget as HTMLVideoElement;
