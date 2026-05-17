@@ -37,28 +37,28 @@ const studentVideos = [
     id: 1,
     title: "Student in Mentora",
     author: "Muhammad Shalikh",
-    videoSrc: "/v1.mp4",
+    videoSrc: "/v1.mp4#t=0.001",
     thumbnail: "/heighlight5.jpeg",
   },
   {
     id: 2,
     title: "Student in Mentora",
     author: "Rai Ali Ejaaz",
-    videoSrc: "/v2.mp4",
+    videoSrc: "/v2.mp4#t=0.001",
     thumbnail: "/heighlight6.jpeg",
   },
   {
     id: 3,
     title: "Student in Mentora",
     author: "Umair Hameed",
-    videoSrc: "/v3.mp4",
+    videoSrc: "/v3.mp4#t=0.001",
     thumbnail: "/heighlight7.jpeg",
   },
   {
     id: 4,
     title: "Student in Mentora",
     author: "Dawood Mustafa",
-    videoSrc: "/v4.mp4",
+    videoSrc: "/v4.mp4#t=0.001",
     thumbnail: "/heighlight8.jpeg",
   }
 ];
@@ -265,26 +265,26 @@ const Index = () => {
         >
           {/* Video Element without poster/thumbnail image */}
           <video
-            src={video.videoSrc}
-            className="w-full h-full object-cover"
-            loop
-            playsInline
-            muted // Autoplay block hone se bachane ke liye zaroori hai
-            preload="auto" // Live site par browser ko force karega video load karne ke liye
-            onMouseOver={(e) => {
-              const v = e.currentTarget as HTMLVideoElement;
-              v.play().catch(err => console.log("Playback failed:", err));
-            }}
-            onMouseOut={(e) => {
-              const v = e.currentTarget as HTMLVideoElement;
-              v.pause();
-            }}
-            controls={false} 
-            onClick={(e) => {
-              const v = e.currentTarget as HTMLVideoElement;
-              v.muted = !v.muted; // Click karne par sound on/off hogi
-            }}
-          />
+  src={video.videoSrc}
+  className="w-full h-full object-cover"
+  loop
+  playsInline
+  muted // Autoplay block hone se bachane ke liye zaroori hai
+  preload="auto" // Isse browser video ka pehla frame direct nikal kar live site par dikhaega bina kisi image ke
+  onMouseOver={(e) => {
+    const v = e.currentTarget as HTMLVideoElement;
+    v.play().catch(err => console.log("Playback failed:", err));
+  }}
+  onMouseOut={(e) => {
+    const v = e.currentTarget as HTMLVideoElement;
+    v.pause();
+  }}
+  controls={false} 
+  onClick={(e) => {
+    const v = e.currentTarget as HTMLVideoElement;
+    v.muted = !v.muted; // Click karne par sound on/off hogi
+  }}
+/>
 
           {/* Bottom Gradient Overlay (Text readability ke liye) */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
