@@ -37,28 +37,28 @@ const studentVideos = [
     id: 1,
     title: "Student in Mentora",
     author: "Muhammad Shalikh",
-    videoSrc: "https://jumpshare.com/share/4AoHFLq48fa6WPPaa7uy",
+    videoSrc: "/v1.mp4",
     thumbnail: "/heighlight5.jpeg",
   },
   {
     id: 2,
     title: "Student in Mentora",
     author: "Rai Ali Ejaaz",
-    videoSrc: "https://jumpshare.com/share/TYC0vvQxE2zESoGII2NC",
+    videoSrc: "/v2.mp4",
     thumbnail: "/heighlight6.jpeg",
   },
   {
     id: 3,
     title: "Student in Mentora",
     author: "Umair Hameed",
-    videoSrc: "https://jumpshare.com/share/0T8i6hCy8yMQA647lONF",
+    videoSrc: "/v3.mp4",
     thumbnail: "/heighlight7.jpeg",
   },
   {
     id: 4,
     title: "Student in Mentora",
     author: "Dawood Mustafa",
-    videoSrc: "https://jumpshare.com/share/1aJQ19vIxdSxzzO6C8sN",
+    videoSrc: "/v4.mp4",
     thumbnail: "/heighlight8.jpeg",
   }
 ];
