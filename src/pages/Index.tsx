@@ -8,6 +8,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-student.jpg";
 import ceoImg from "@/assets/ceo-portrait.jpg";
+import v1 from "../assets/v1.mp4";
+import v2 from "../assets/v2.mp4";
+import v3 from "../assets/v3.mp4";
+import v4 from "../assets/v4.mp4";
 
 const stats = [
   { icon: Users, value: "500+", label: "Students Placed" },
@@ -37,28 +41,28 @@ const studentVideos = [
     id: 1,
     title: "Student in Mentora",
     author: "Muhammad Shalikh",
-    videoSrc: "/v1.mp4",
+    videoSrc: v1,
     thumbnail: "/heighlight5.jpeg",
   },
   {
     id: 2,
     title: "Student in Mentora",
     author: "Rai Ali Ejaaz",
-    videoSrc: "/v2.mp4",
+    videoSrc: v2,
     thumbnail: "/heighlight6.jpeg",
   },
   {
     id: 3,
     title: "Student in Mentora",
     author: "Umair Hameed",
-    videoSrc: "/v3.mp4",
+    videoSrc: v3,
     thumbnail: "/heighlight7.jpeg",
   },
   {
     id: 4,
     title: "Student in Mentora",
     author: "Dawood Mustafa",
-    videoSrc: "/v4.mp4",
+    videoSrc: v4,
     thumbnail: "/heighlight8.jpeg",
   }
 ];
