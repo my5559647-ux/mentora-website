@@ -8,10 +8,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-student.jpg";
 import ceoImg from "@/assets/ceo-portrait.jpg";
-import v1 from "../assets/v1.mp4";
-import v2 from "../assets/v2.mp4";
-import v3 from "../assets/v3.mp4";
-import v4 from "../assets/v4.mp4";
+const v1 = "https://go.screenpal.com/player/cOhqlQntAv1";
+const v2 = "https://go.screenpal.com/player/cOhqlQntAvi";
+const v3 = "https://go.screenpal.com/player/cOhqlQntAvj";
+const v4 = "https://go.screenpal.com/player/cOhqlQntAvQ";
 
 const stats = [
   { icon: Users, value: "500+", label: "Students Placed" },
@@ -267,45 +267,17 @@ const Index = () => {
           key={video.id} 
           className="relative group rounded-xl overflow-hidden shadow-lg bg-black h-[500px]"
         >
-          {/* Video Element without poster/thumbnail image */}
-          <video
-  src={video.videoSrc}
-  className="w-full h-full object-cover"
-  loop
-  playsInline
-  muted // Autoplay block hone se bachane ke liye zaroori hai
-  preload="auto" // Isse browser video ka pehla frame direct nikal kar live site par dikhaega bina kisi image ke
-  onMouseOver={(e) => {
-    const v = e.currentTarget as HTMLVideoElement;
-    v.play().catch(err => console.log("Playback failed:", err));
-  }}
-  onMouseOut={(e) => {
-    const v = e.currentTarget as HTMLVideoElement;
-    v.pause();
-  }}
-  controls={false} 
-  onClick={(e) => {
-    const v = e.currentTarget as HTMLVideoElement;
-    v.muted = !v.muted; // Click karne par sound on/off hogi
-  }}
-/>
+          {/* ScreenPal Embed */}
+          <iframe
+            src={video.videoSrc}
+            className="w-full h-full"
+            allowFullScreen
+            allow="autoplay; fullscreen"
+            style={{ border: "none" }}
+          />
 
           {/* Bottom Gradient Overlay (Text readability ke liye) */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-
-          {/* Play Icon Overlay (Center) */}
-          <div className="absolute inset-0 flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
-            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full border border-white/30">
-              {/* Play icon wrapper */}
-              <svg 
-                className="w-8 h-8 text-white fill-white" 
-                viewBox="0 0 24 24" 
-                fill="currentColor"
-              >
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
-          </div>
 
           {/* Text Content (Bottom) */}
           <div className="absolute bottom-0 left-0 right-0 p-5 pointer-events-none">
