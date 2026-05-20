@@ -8,10 +8,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-student.jpg";
 import ceoImg from "@/assets/ceo-portrait.jpg";
-import v1 from "../assets/v1.mp4";
-import v2 from "../assets/v2.mp4";
-import v3 from "../assets/v3.mp4";
-import v4 from "../assets/v4.mp4";
+
 
 const stats = [
   { icon: Users, value: "500+", label: "Students Placed" },
@@ -39,37 +36,41 @@ const destinations = [
 const studentVideos = [
   {
     id: 1,
-    title: "Student in Mentora",
-    author: "Muhammad Shalikh",
-    videoSrc: v1,
+    title: "Teacher in England",
+    author: "Jamshed Hamid Dhothar",
+    videoSrc: "https://go.screenpal.com/player/cOhYnYntgrt?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1&width=100%&height=100%", 
     thumbnail: "/heighlight5.jpeg",
+    role: "Teacher"
   },
   {
     id: 2,
     title: "Student in Mentora",
     author: "Rai Ali Ejaaz",
-    videoSrc: v2,
+    videoSrc: "https://go.screenpal.com/player/cOhqlQntAvi",
     thumbnail: "/heighlight6.jpeg",
+    role: "Student"
   },
   {
     id: 3,
-    title: "Student in Mentora",
+    title: "Colleague of CEO",
     author: "Umair Hameed",
-    videoSrc: v3,
+    videoSrc: "https://go.screenpal.com/player/cOhqlQntAvj",
     thumbnail: "/heighlight7.jpeg",
+    role: "Colleague"
   },
   {
     id: 4,
     title: "Student in Mentora",
     author: "Dawood Mustafa",
-    videoSrc: v4,
+    videoSrc: "https://go.screenpal.com/player/cOhqlQntAvQ",
     thumbnail: "/heighlight8.jpeg",
+    role: "Student"
   }
 ];
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showTurkeyDetails, setShowTurkeyDetails] = useState(false); // <-- Menu state
+  const [showTurkeyDetails, setShowTurkeyDetails] = useState(false); 
 
   return (
     <div className="min-h-screen bg-background">
@@ -78,7 +79,7 @@ const Index = () => {
         <div className="container flex items-center justify-between h-20 px-4">
           <a href="#" className="flex items-center gap-3" aria-label="Mentora — Education Consultancy">
           <div className="flex items-center gap-2 md:gap-4">
-  {/* Logo Container: Balanced padding and centering */}
+  {/* Logo Container */}
   <div className="relative h-11 w-11 md:h-14 md:w-14 overflow-hidden rounded-lg md:rounded-xl bg-white border border-[#D4AF37]/30 shadow-md flex items-center justify-center flex-shrink-0 p-1">
     <img 
       src="/logo icon.jpeg" 
@@ -132,10 +133,10 @@ const Index = () => {
             <nav className="flex flex-col gap-4 text-lg font-medium text-muted-foreground">
               <a href="#" onClick={() => setIsMenuOpen(false)}>Home</a>
               <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
+              <a href="#highlights" onClick={() => setIsMenuOpen(false)}>Gallery</a>
               <a href="#destinations" onClick={() => setIsMenuOpen(false)}>Countries</a>
               <a href="#ceo" onClick={() => setIsMenuOpen(false)}>CEO</a>
               <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
-              <a href="#highlights" onClick={() => setIsMenuOpen(false)}>Gallery</a>
             </nav>
             <Button asChild className="w-full bg-royal-gradient py-6 text-lg md:hidden">
               <a href="#contact">Free Consultation</a>
@@ -225,7 +226,6 @@ const Index = () => {
   </div>
 
   <div className="flex flex-col gap-6">
-    {/* Pehli Line - Right Move karegi (Highlight 1 to 4) */}
     <div className="flex gap-4 animate-marquee-right whitespace-nowrap">
       {[1, 2, 3, 4, 1, 2, 3, 4].map((num, i) => (
         <div key={i} className="min-w-[300px] h-[300px] rounded-xl overflow-hidden bg-secondary shadow-xl border border-white/5">
@@ -238,7 +238,6 @@ const Index = () => {
       ))}
     </div>
 
-    {/* Doosri Line - Left Move karegi (Highlight 5 to 8) */}
     <div className="flex gap-4 animate-marquee-left whitespace-nowrap">
       {[5, 6, 7, 8, 5, 6, 7, 8].map((num, i) => (
         <div key={i} className="min-w-[300px] h-[300px] rounded-xl overflow-hidden bg-secondary shadow-xl border border-white/5">
@@ -254,11 +253,11 @@ const Index = () => {
 </section>
 
 {/* Video Section Start */}
-<section className="py-16 bg-[#F8F9FA]"> {/* Professional Light Gray Background */}
+<section className="py-16 bg-[#F8F9FA]"> 
   <div className="container mx-auto px-4">
-    <h2 className="text-3xl font-bold mb-10 text-gray-900 text-center">
-      Hear from our Students
-    </h2>
+    {/* <h2 className="text-3xl font-bold mb-10 text-gray-900 text-center">
+      Our Success Stories
+    </h2> */}
     
     {/* Grid Layout - 4 Columns */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -267,53 +266,36 @@ const Index = () => {
           key={video.id} 
           className="relative group rounded-xl overflow-hidden shadow-lg bg-black h-[500px]"
         >
-          {/* Video Element without poster/thumbnail image */}
-          <video
-  src={video.videoSrc}
-  className="w-full h-full object-cover"
-  loop
-  playsInline
-  muted // Autoplay block hone se bachane ke liye zaroori hai
-  preload="auto" // Isse browser video ka pehla frame direct nikal kar live site par dikhaega bina kisi image ke
-  onMouseOver={(e) => {
-    const v = e.currentTarget as HTMLVideoElement;
-    v.play().catch(err => console.log("Playback failed:", err));
-  }}
-  onMouseOut={(e) => {
-    const v = e.currentTarget as HTMLVideoElement;
-    v.pause();
-  }}
-  controls={false} 
-  onClick={(e) => {
-    const v = e.currentTarget as HTMLVideoElement;
-    v.muted = !v.muted; // Click karne par sound on/off hogi
-  }}
-/>
-
-          {/* Bottom Gradient Overlay (Text readability ke liye) */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-
-          {/* Play Icon Overlay (Center) */}
-          <div className="absolute inset-0 flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
-            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full border border-white/30">
-              {/* Play icon wrapper */}
-              <svg 
-                className="w-8 h-8 text-white fill-white" 
-                viewBox="0 0 24 24" 
-                fill="currentColor"
-              >
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
+          <div className={`w-full h-full overflow-hidden relative ${video.id === 1 ? 'scale-105 sm:scale-110' : ''}`}>
+            <iframe
+              src={video.videoSrc}
+              className="absolute inset-0 w-full h-full object-cover border-none"
+              allowFullScreen
+              allow="autoplay; fullscreen"
+              style={{ border: "none" }}
+            />
           </div>
 
+          {/* Top Role Badge Overlay */}
+          <div className="absolute top-4 left-4 pointer-events-none z-10">
+            <span className={`px-3 py-1 rounded-full text-xs font-bold text-white tracking-wide shadow-md ${
+              video.role === "Teacher" ? "bg-red-700" :
+              video.role === "Colleague" ? "bg-red-700" : "bg-red-700"
+            }`}>
+              {video.role}
+            </span>
+          </div>
+
+          {/* Bottom Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent pointer-events-none" />
+
           {/* Text Content (Bottom) */}
-          <div className="absolute bottom-0 left-0 right-0 p-5 pointer-events-none">
+          <div className="absolute bottom-0 left-0 right-0 p-5 pointer-events-none z-10">
             <h3 className="text-white font-semibold text-lg leading-tight mb-2">
               {video.title}
             </h3>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-[#DC2626] flex items-center justify-center text-[12px] text-white font-bold border border-white/20 shadow-md">
+              <div className="w-8 h-8 rounded-full bg-[#DC2626] flex items-center justify-center text-[12px] text-white font-bold border border-white/20 shadow-md context-initials">
                 {video.author ? video.author[0] : 'M'}
               </div>
               <p className="text-white font-medium text-sm">{video.author}</p>
@@ -359,7 +341,7 @@ const Index = () => {
               onClick={() => d.name === "Turkey" && setShowTurkeyDetails(true)}
               className={`group bg-[#0a1128] text-white border border-slate-800 rounded-2xl p-8 text-center hover:bg-[#0f1a3a] transition-all duration-500 flex flex-col items-center min-h-[260px] shadow-2xl ${d.name === "Turkey" ? "cursor-pointer ring-1 ring-white/5 hover:ring-[#be123c]/50" : ""}`}
             >
-              {/* Flag Image - Professional Size */}
+              {/* Flag Image - */}
               <div className="mb-8 w-24 h-16 overflow-hidden rounded-lg shadow-2xl border border-white/10 group-hover:scale-110 transition-transform duration-500">
                 <img 
                   src={`https://flagcdn.com/w320/${d.code}.png`} 
@@ -666,21 +648,22 @@ const Index = () => {
     <div className="max-w-4xl mx-auto bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm">
       <div className="grid md:grid-cols-2 gap-8 mb-10">
         
-        {/* Email Card */}
-        <a href="mailto:mentoraeducationalservices@gmail.com" className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200">
-          <div className="w-12 h-12 rounded-xl bg-[#be123c] flex items-center justify-center text-white shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect width="20" height="16" x="2" y="4" rx="2"/>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-            </svg>
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="text-xs uppercase tracking-wider text-slate-500 font-medium">Email Us</div>
-            <div className="text-sm md:text-base font-bold text-slate-900 truncate" title="mentoraeducationalservices@gmail.com">
-                mentoraeducationalservices@gmail.com
-            </div>
-          </div>
-        </a>
+       {/* Email Card */}
+<a href="mailto:mentoraeducationalservices@gmail.com" className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200">
+  <div className="w-12 h-12 rounded-xl bg-[#be123c] flex items-center justify-center text-white shrink-0">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect width="20" height="16" x="2" y="4" rx="2"/>
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </div>
+  <div className="min-w-0 flex-1">
+    <div className="text-xs uppercase tracking-wider text-slate-500 font-medium">Email Us</div>
+    {/* text-[11px] lagaya hai jo chote mobiles par text ko break nahi hone dega aur line mein clean dikhayega */}
+    <div className="text-[11px] xs:text-xs sm:text-sm md:text-base font-bold text-slate-900 break-words whitespace-normal" title="mentoraeducationalservices@gmail.com">
+      mentoraeducationalservices@gmail.com
+    </div>
+  </div>
+</a>
 
         {/* Call Card  */}
         <div className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white transition-all duration-300 shadow-sm border border-transparent hover:border-slate-200 cursor-default">
