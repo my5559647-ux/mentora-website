@@ -332,7 +332,7 @@ const Index = () => {
     name: "Italy",
     code: "it",
     tag: "Cultural Heritage",
-    image: "public/italy.jpg",
+    image: "/italy.jpg",
     fullData: {
       "Total Budget": "10 Lac",
       "Intake": "September",
@@ -346,7 +346,7 @@ const Index = () => {
     name: "Turkey",
     code: "tr",
     tag: "Cultural Heritage",
-    image: "public/turkey2.jpg",
+    image: "/turkey2.jpg",
     fullData: {
         "Total Budget": "10 Lac",
         "Intake": "September",
@@ -365,7 +365,7 @@ const Index = () => {
  name: "Cyprus",
   code: "cy",
   tag: "European Education",
-  image: "public/cyprus.jpg",
+  image: "/cyprus.jpg",
   fullData: {
     "Budget": "5000 - 6500 Euro (per year fee)",
     "Intake": "Sep, Jan, Feb",
@@ -387,7 +387,7 @@ const Index = () => {
     name: "Romania",
     code: "ro",
     tag: "Technical Education",
-    image: "public/romania.jpg",
+    image: "/romania.jpg",
     fullData: {
       "Budget": "23 Lac",
       "Requirements": 
