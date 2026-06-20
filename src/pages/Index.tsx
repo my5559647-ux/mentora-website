@@ -8,6 +8,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-student.jpg";
 import ceoImg from "@/assets/ceo-portrait.jpg";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 
 
@@ -51,6 +54,7 @@ const studentVideos = [
     thumbnail: "/heighlight6.jpeg",
     role: "Student"
   },
+  
   {
     id: 3,
     title: "Colleague of CEO",
@@ -66,6 +70,14 @@ const studentVideos = [
     videoSrc: "https://go.screenpal.com/player/cOhqlQntAvQ",
     thumbnail: "/heighlight8.jpeg",
     role: "Student"
+  },
+  {
+    id: 5,
+    title: "CEO of Mentora",
+    author: "Awais Munir",
+    videoSrc: "https://go.screenpal.com/player/cO1Y2KnudtW?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1&width=100%&height=100%",
+    thumbnail: "/heighlight9.jpeg",
+    role: "CEO"
   }
 ];
 
@@ -257,55 +269,61 @@ const Index = () => {
 {/* Video Section Start */}
 <section className="py-16 bg-[#F8F9FA]"> 
   <div className="container mx-auto px-4">
-    {/* <h2 className="text-3xl font-bold mb-10 text-gray-900 text-center">
-      Our Success Stories
-    </h2> */}
-    
-    {/* Grid Layout - 4 Columns */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <Slider 
+      dots={true} 
+      infinite={true} 
+      speed={500} 
+      slidesToShow={4} 
+      slidesToScroll={1}
+      arrows={true}
+      responsive={[
+        { breakpoint: 1024, settings: { slidesToShow: 3 } },
+        { breakpoint: 768, settings: { slidesToShow: 2 } },
+        { breakpoint: 480, settings: { slidesToShow: 1 } }
+      ]}
+    >
       {studentVideos && studentVideos.map((video) => (
-        <div 
-          key={video.id} 
-          className="relative group rounded-xl overflow-hidden shadow-lg bg-black h-[500px]"
-        >
-          <div className={`w-full h-full overflow-hidden relative ${video.id === 1 ? 'scale-105 sm:scale-110' : ''}`}>
-            <iframe
-              src={video.videoSrc}
-              className="absolute inset-0 w-full h-full object-cover border-none"
-              allowFullScreen
-              allow="autoplay; fullscreen"
-              style={{ border: "none" }}
-            />
-          </div>
-
-          {/* Top Role Badge Overlay */}
-          <div className="absolute top-4 left-4 pointer-events-none z-10">
-            <span className={`px-3 py-1 rounded-full text-xs font-bold text-white tracking-wide shadow-md ${
-              video.role === "Teacher" ? "bg-red-700" :
-              video.role === "Colleague" ? "bg-red-700" : "bg-red-700"
-            }`}>
-              {video.role}
-            </span>
-          </div>
-
-          {/* Bottom Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent pointer-events-none" />
-
-          {/* Text Content (Bottom) */}
-          <div className="absolute bottom-0 left-0 right-0 p-5 pointer-events-none z-10">
-            <h3 className="text-white font-semibold text-lg leading-tight mb-2">
-              {video.title}
-            </h3>
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-[#DC2626] flex items-center justify-center text-[12px] text-white font-bold border border-white/20 shadow-md context-initials">
-                {video.author ? video.author[0] : 'M'}
-              </div>
-              <p className="text-white font-medium text-sm">{video.author}</p>
+        <div key={video.id} className="px-2">
+          <div className="relative group rounded-xl overflow-hidden shadow-lg bg-black h-[500px]">
+            
+            {/* Video Container with Animation */}
+            <div className={`w-full h-full overflow-hidden relative ${video.id === 1 ? 'scale-105 sm:scale-110' : ''}`}>
+              <iframe
+                src={video.videoSrc}
+                className="absolute inset-0 w-full h-full object-cover border-none"
+                allowFullScreen
+                allow="autoplay; fullscreen"
+                style={{ border: "none" }}
+              />
             </div>
+
+            {/* Top Role Badge Overlay */}
+            <div className="absolute top-4 left-4 pointer-events-none z-10">
+              <span className="px-3 py-1 rounded-full text-xs font-bold text-white tracking-wide shadow-md bg-red-700">
+                {video.role}
+              </span>
+            </div>
+
+            {/* Bottom Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent pointer-events-none" />
+
+            {/* Text Content (Bottom) */}
+            <div className="absolute bottom-0 left-0 right-0 p-5 pointer-events-none z-10">
+              <h3 className="text-white font-semibold text-lg leading-tight mb-2">
+                {video.title}
+              </h3>
+              <div className="flex items-center gap-2 pointer-events-auto">
+                <div className="w-8 h-8 rounded-full bg-[#DC2626] flex items-center justify-center text-[12px] text-white font-bold border border-white/20 shadow-md context-initials">
+                  {video.author ? video.author[0] : 'M'}
+                </div>
+                <p className="text-white font-medium text-sm">{video.author}</p>
+              </div>
+            </div>
+
           </div>
         </div>
       ))}
-    </div>
+    </Slider>
   </div>
 </section>
 {/* Video Section End */}
