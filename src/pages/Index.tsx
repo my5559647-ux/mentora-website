@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-student.jpg";
 import ceoImg from "@/assets/ceo-portrait.jpg";
 import Slider from "react-slick";
@@ -118,12 +119,14 @@ const Index = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-smooth">Home</a>
-            <a href="#services" className="hover:text-primary transition-smooth">Services</a>
-            <a href="#gallery" className="hover:text-primary transition-colors">Gallery</a>
-            <a href="#destinations" className="hover:text-primary transition-smooth">Countries</a>
-            <a href="#ceo" className="hover:text-primary transition-smooth">CEO</a>
-            <a href="#about" className="hover:text-primary transition-smooth">About</a>
+            <Link to="/" className="hover:text-primary transition-smooth">Home</Link>
+            <Link to="/services" className="hover:text-primary transition-smooth">Services</Link>
+            <Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link>
+            <Link to="/countries" className="hover:text-primary transition-smooth">Countries</Link>
+            <Link to="/ceo" className="hover:text-primary transition-smooth">CEO</Link>
+            <Link to="/pte" className="hover:text-primary transition-smooth">PTE</Link>
+            <Link to="/ielts" className="hover:text-primary transition-smooth">IELTS</Link>
+            <Link to="/about" className="hover:text-primary transition-smooth">About</Link>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -145,15 +148,17 @@ const Index = () => {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-20 left-0 w-full bg-background border-b border-border/40 p-6 flex flex-col gap-5 shadow-2xl animate-in slide-in-from-top duration-300">
             <nav className="flex flex-col gap-4 text-lg font-medium text-muted-foreground">
-              <a href="#" onClick={() => setIsMenuOpen(false)}>Home</a>
-              <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
-              <a href="#highlights" onClick={() => setIsMenuOpen(false)}>Gallery</a>
-              <a href="#destinations" onClick={() => setIsMenuOpen(false)}>Countries</a>
-              <a href="#ceo" onClick={() => setIsMenuOpen(false)}>CEO</a>
-              <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
+              <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+              <Link to="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
+              <Link to="/gallery" onClick={() => setIsMenuOpen(false)}>Gallery</Link>
+              <Link to="/countries" onClick={() => setIsMenuOpen(false)}>Countries</Link>
+              <Link to="/ceo" onClick={() => setIsMenuOpen(false)}>CEO</Link>
+              <Link to="/pte" onClick={() => setIsMenuOpen(false)}>PTE</Link>
+              <Link to="/ielts" onClick={() => setIsMenuOpen(false)}>IELTS</Link>
+              <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
             </nav>
             <Button asChild className="w-full bg-royal-gradient py-6 text-lg md:hidden">
-              <a href="#contact">Free Consultation</a>
+              <a href="#contact" onClick={() => setIsMenuOpen(false)}>Free Consultation</a>
             </Button>
           </div>
         )}
@@ -279,12 +284,12 @@ const Index = () => {
       responsive={[
         { breakpoint: 1024, settings: { slidesToShow: 3 } },
         { breakpoint: 768, settings: { slidesToShow: 2 } },
-        { breakpoint: 480, settings: { slidesToShow: 1 } }
+        { breakpoint: 640, settings: { slidesToShow: 1 } }
       ]}
     >
       {studentVideos && studentVideos.map((video) => (
         <div key={video.id} className="px-2">
-          <div className="relative group rounded-xl overflow-hidden shadow-lg bg-black h-[500px]">
+          <div className="relative group rounded-xl overflow-hidden shadow-lg bg-black h-[400px] sm:h-[450px] md:h-[500px]">
             
             {/* Video Container with Animation */}
             <div className={`w-full h-full overflow-hidden relative ${video.id === 1 ? 'scale-105 sm:scale-110' : ''}`}>
@@ -804,13 +809,15 @@ const Index = () => {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider mb-5 text-accent">Quick Links</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#services" className="hover:text-foreground transition-smooth">Home</a></li>
-               <li><a href="#services" className="hover:text-foreground transition-smooth">Services</a></li>
-               <li><a href="#gallery" className="hover:text-foreground transition-smooth">Gallery</a></li>
-              <li><a href="#destinations" className="hover:text-foreground transition-smooth">Countries</a></li>
-              <li><a href="#ceo" className="hover:text-foreground transition-smooth">CEO</a></li>
-              <li><a href="#ceo" className="hover:text-foreground transition-smooth">About</a></li>
-              <li><a href="#contact" className="hover:text-foreground transition-smooth">Apply Now</a></li>
+              <li><Link to="/" className="hover:text-foreground transition-smooth">Home</Link></li>
+               <li><Link to="/services" className="hover:text-foreground transition-smooth">Services</Link></li>
+               <li><Link to="/gallery" className="hover:text-foreground transition-smooth">Gallery</Link></li>
+              <li><Link to="/countries" className="hover:text-foreground transition-smooth">Countries</Link></li>
+              <li><Link to="/ceo" className="hover:text-foreground transition-smooth">CEO</Link></li>
+              <li><Link to="/pte" className="hover:text-foreground transition-smooth">PTE</Link></li>
+              <li><Link to="/ielts" className="hover:text-foreground transition-smooth">IELTS</Link></li>
+              <li><Link to="/about" className="hover:text-foreground transition-smooth">About</Link></li>
+              <li><Link to="/" className="hover:text-foreground transition-smooth">Apply Now</Link></li>
             </ul>
           </div>
 
