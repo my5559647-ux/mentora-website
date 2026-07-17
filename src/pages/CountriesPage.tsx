@@ -105,7 +105,7 @@ const countriesList: CountryData[] = [
     name: "Romania",
     tagline: "Technical Education",
     flagUrl: "https://flagcdn.com/w160/ro.png",
-    image: "https://images.unsplash.com/photo-1568224053918-0524ff002164?auto=format&fit=crop&w=800&q=80", // Exact Palace of the Parliament building with front pathway
+    image: "/romania.jpg",
     isComingSoon: false,
     totalBudget: "23 Lac",
     requirements: [

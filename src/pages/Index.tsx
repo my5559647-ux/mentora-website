@@ -25,8 +25,6 @@ import "slick-carousel/slick/slick.css";
 
 import "slick-carousel/slick/slick-theme.css";
 
-import { Link } from "react-router-dom";
-
 
 
 
@@ -249,7 +247,11 @@ const Index = () => {
 
       <Link to="/countries" className="hover:text-primary transition-smooth">Countries</Link>
 
-      <Link to="/about" className="hover:text-primary transition-smooth">CEO</Link>
+      <Link to="/ceo" className="hover:text-primary transition-smooth">CEO</Link>
+
+      <Link to="/pte" className="hover:text-primary transition-smooth">PTE</Link>
+
+      <Link to="/ielts" className="hover:text-primary transition-smooth">IELTS</Link>
 
       <Link to="/about" className="hover:text-primary transition-smooth">About</Link>
 
@@ -305,7 +307,11 @@ const Index = () => {
 
         <Link to="/countries" onClick={() => setIsMenuOpen(false)}>Countries</Link>
 
-        <Link to="/about" onClick={() => setIsMenuOpen(false)}>CEO</Link>
+        <Link to="/ceo" onClick={() => setIsMenuOpen(false)}>CEO</Link>
+
+        <Link to="/pte" onClick={() => setIsMenuOpen(false)}>PTE</Link>
+
+        <Link to="/ielts" onClick={() => setIsMenuOpen(false)}>IELTS</Link>
 
         <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
 

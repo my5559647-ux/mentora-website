@@ -12,6 +12,7 @@ import Countries from "./pages/CountriesPage";
 import AboutPage from "./pages/AboutPage";
 import PtePage from "./pages/PtePage";
 import IeltsPage from "./pages/IeltsPage";
+import CeoPage from "./pages/CeoPage";
 import Layout from "./components/Layout";
 
 
@@ -43,9 +44,10 @@ const App = () => (
           <Route path="/services" element={<Layout><ServicesPage /></Layout>} />
           <Route path="/gallery" element={<Layout><Gallery /></Layout>} />
           <Route path="/countries" element={<Layout><Countries /></Layout>} />
-          <Route path="/about" element={<Layout><AboutPage /></Layout>} />
+          <Route path="/ceo" element={<Layout><CeoPage /></Layout>} />
           <Route path="/pte" element={<Layout><PtePage /></Layout>} />
           <Route path="/ielts" element={<Layout><IeltsPage /></Layout>} />
+          <Route path="/about" element={<Layout><AboutPage /></Layout>} />
 
           {/* Catch-all Not Found Route */}
           <Route path="*" element={<NotFound />} />
