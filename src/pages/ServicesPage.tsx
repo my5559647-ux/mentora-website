@@ -1,4 +1,239 @@
 import React from 'react';
+
+import { Link } from 'react-router-dom';
+
+
+
+const ServicesPage: React.FC = () => {
+
+  // Future-Proof Services Array: Jab bhi koi nayi service add karni ho, bas is array mein object barha dein
+
+  const detailedServices = [
+
+    {
+
+      id: 1,
+
+      icon: "🎓",
+
+      title: "University Admissions",
+
+      subtitle: "Personalized university shortlisting, application strategy and SOP crafting for top global institutions.",
+
+      details: [
+
+        "Profile Evaluation: Detailed assessment of your academic background, grades, and financial budget.",
+
+        "University Shortlisting: Finding the best matches across global destinations suited to your goals.",
+
+        "Documentation Assistance: Complete guidance on preparing your Statement of Purpose (SOP), Letters of Recommendation (LORs), and CV.",
+
+        "Application Submission: End-to-end management of university submission deadlines and follow-ups."
+
+      ]
+
+    },
+
+    {
+
+      id: 2,
+
+      icon: "📄",
+
+      title: "Visa Preparation",
+
+      subtitle: "End-to-end visa documentation, financial planning and mock interview coaching with a 98% approval rate.",
+
+      details: [
+
+        "Financial File Setup: Expert guidelines on maintaining bank statements and sponsorship files.",
+
+        "Visa Application Filing: Error-free processing of student visa forms according to high commission rules.",
+
+        "Mock Interview Prep: Live practice sessions with senior counselors to boost your confidence.",
+
+        "Post-Visa Briefing: Essential pre-departure advice covering accommodation, travel insurance, and foreign currency."
+
+      ]
+
+    },
+
+    // Future expansion points (Inko uncomment karke aap active kar sakti hain):
+
+    /*
+
+    {
+
+      id: 3,
+
+      icon: "✍",
+
+      title: "IELTS & Language Coaching",
+
+      subtitle: "Expert-led training modules for language proficiency exams.",
+
+      details: ["Mock tests", "Grammar analysis", "Speaking session drills"]
+
+    }
+
+    */
+
+  ];
+
+
+
+  return (
+
+    <div className="min-h-screen bg-[#030712] text-white py-16 px-4 sm:px-6 lg:px-8">
+
+      <div className="max-w-6xl mx-auto">
+
+        
+
+        {/* Back Link to Home */}
+
+        <Link to="/" className="text-sm text-slate-400 hover:text-red-500 transition-colors inline-flex items-center gap-2 mb-8">
+
+          ← Back to Home
+
+        </Link>
+
+
+
+        {/* Header Section (Based on image_9e932b.jpg) */}
+
+        <div className="text-center mb-16">
+
+          <span className="text-red-500 font-semibold uppercase tracking-wider text-sm bg-red-500/10 px-3 py-1 rounded-full">
+
+            OUR SERVICES
+
+          </span>
+
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mt-4 leading-tight">
+
+            Everything you need, <span className="text-red-500">end to end.</span>
+
+          </h1>
+
+          <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto">
+
+            Four pillars of support that take you from a hopeful applicant to a confident global citizen.
+
+          </p>
+
+        </div>
+
+
+
+        {/* Detailed Services Stack */}
+
+        <div className="space-y-12">
+
+          {detailedServices.map((service) => (
+
+            <div 
+
+              key={service.id} 
+
+              className="bg-slate-900/60 border border-slate-800 rounded-3xl p-8 md:p-10 hover:border-red-500/30 transition-all duration-300 shadow-xl"
+
+            >
+
+              {/* Header inside Card */}
+
+              <div className="flex flex-col md:flex-row md:items-center gap-4 mb-6 border-b border-slate-800 pb-6">
+
+                <div className="w-14 h-14 bg-red-500/10 rounded-2xl flex items-center justify-center text-3xl">
+
+                  {service.icon}
+
+                </div>
+
+                <div>
+
+                  <h2 className="text-2xl md:text-3xl font-serif font-bold text-slate-100">{service.title}</h2>
+
+                  <p className="text-sm text-slate-400 mt-1 max-w-3xl">{service.subtitle}</p>
+
+                </div>
+
+              </div>
+
+
+
+              {/* In-depth breakdown lists for future data scaling */}
+
+              <div>
+
+                <h3 className="text-amber-500 font-semibold text-sm uppercase tracking-wider mb-4">What's Included:</h3>
+
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                  {service.details.map((detail, index) => {
+
+                    const [title, desc] = detail.split(": ");
+
+                    return (
+
+                      <li key={index} className="bg-slate-950 border border-slate-800/80 p-4 rounded-xl flex flex-col justify-start">
+
+                        <span className="font-bold text-slate-200 text-base mb-1 flex items-center gap-2">
+
+                          <span className="text-red-500">✔</span> {title}
+
+                        </span>
+
+                        {desc && <span className="text-sm text-slate-400 leading-relaxed">{desc}</span>}
+
+                      </li>
+
+                    );
+
+                  })}
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
+
+
+        {/* Bottom Call to Action for Services */}
+
+        <div className="mt-16 bg-gradient-to-r from-red-950/30 to-slate-900 border border-slate-800/80 p-8 rounded-3xl text-center">
+
+          <h2 className="text-2xl font-bold font-serif mb-2 text-slate-200">Need Guidance on a Specific Case?</h2>
+
+          <p className="text-slate-400 text-sm max-w-xl mx-auto mb-6">Our senior advisors can evaluate your academics and gap-years to suggest customized educational pathways.</p>
+
+          <button className="bg-red-600 hover:bg-red-700 font-bold px-8 py-3 rounded-full transition-transform active:scale-95 text-sm">
+
+            Consult Our Experts Now
+
+          </button>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  );
+
+};
+
+
+
+export default ServicesPage;
+import React from 'react';
 import { 
   GraduationCap, 
   FileText, 

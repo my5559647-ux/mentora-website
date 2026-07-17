@@ -1,3 +1,238 @@
+import React from 'react';
+
+import { Link } from 'react-router-dom';
+
+
+
+const GalleryPage: React.FC = () => {
+
+  // Future-Proof Image Highlights Array (Based on image_9e934a.jpg)
+
+  const meetingHighlights = [
+
+    { id: 1, title: "Team Meeting", subtitle: "STRONGER TOGETHER, BETTER FUTURE", image: "/heighlight5.jpeg" },
+
+    { id: 2, title: "Team Meeting", subtitle: "STRONGER TOGETHER, BETTER FUTURE", image: "/heighlight5.jpeg" },
+
+    { id: 3, title: "Team Meeting", subtitle: "STRONGER TOGETHER, BETTER FUTURE", image: "/heighlight5.jpeg" },
+
+    { id: 4, title: "Team Meeting", subtitle: "STRONGER TOGETHER, BETTER FUTURE", image: "/heighlight5.jpeg" },
+
+    // Future mein jab bhi naye events ya visa success ki pics aayein, yahan objects barhate jayein...
+
+  ];
+
+
+
+  // Future-Proof Video Testimonials Array (Based on image_9e9369.jpg)
+
+  const videoTestimonials = [
+
+    { id: 1, role: "Teacher", location: "Teacher in England", name: "Jamshed Hamid Dhothar", thumbnail: "/heighlight5.jpeg" },
+
+    { id: 2, role: "Student", location: "Student in Mentora", name: "Rai Ali Ejaaz", thumbnail: "/heighlight5.jpeg" },
+
+    { id: 3, role: "Colleague", location: "Colleague of CEO", name: "Umair Hameed", thumbnail: "/heighlight5.jpeg" },
+
+    { id: 4, role: "Student", location: "Student in Mentora", name: "Dawood Mustafa", thumbnail: "/heighlight5.jpeg" },
+
+    // Naye video links aur logs yahan future mein easily add ho saktay hain...
+
+  ];
+
+
+
+  return (
+
+    <div className="min-h-screen bg-[#030712] text-white py-16 px-4 sm:px-6 lg:px-8">
+
+      <div className="max-w-6xl mx-auto">
+
+        
+
+        {/* Back Link to Home */}
+
+        <Link to="/" className="text-sm text-slate-400 hover:text-red-500 transition-colors inline-flex items-center gap-2 mb-8">
+
+          ← Back to Home
+
+        </Link>
+
+
+
+        {/* Main Title Header */}
+
+        <div className="text-center mb-16">
+
+          <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-wide border-b-4 border-amber-500 inline-block pb-3">
+
+            Gallery
+
+          </h1>
+
+          <p className="text-slate-400 mt-4 text-sm uppercase tracking-widest">Captured Moments & Student Testimonials</p>
+
+        </div>
+
+
+
+        {/* Section 1: Team Meetings & Events Grid (Based on image_9e934a.jpg) */}
+
+        <div className="mb-20">
+
+          <h2 className="text-2xl font-serif font-bold text-slate-200 mb-8 flex items-center gap-3">
+
+            <span className="w-2 h-6 bg-amber-500 rounded-full"></span> Corporate Events & Highlights
+
+          </h2>
+
+          
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+            {meetingHighlights.map((item, index) => (
+
+              <div 
+
+                key={index} 
+
+                className="bg-white text-slate-900 rounded-2xl overflow-hidden border border-slate-200 shadow-lg group hover:shadow-xl transition-all duration-300"
+
+              >
+
+                {/* Image Holder */}
+
+                <div className="aspect-[4/5] bg-slate-100 relative overflow-hidden flex items-center justify-center">
+
+                  <div className="text-xs text-slate-400 absolute">Image: {item.image}</div>
+
+                  {/* Actual img link placeholder */}
+
+                  <div className="w-full h-full bg-slate-200 border-b border-slate-300"></div>
+
+                </div>
+
+                {/* Typography Frame */}
+
+                <div className="p-4 text-center bg-white border-t border-slate-100">
+
+                  <h4 className="font-extrabold text-sm tracking-wider text-slate-800 uppercase">{item.title}</h4>
+
+                  <div className="w-8 h-[2px] bg-red-600 mx-auto my-2"></div>
+
+                  <p className="text-[10px] font-bold text-slate-500 tracking-tight">{item.subtitle}</p>
+
+                </div>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+
+
+        {/* Section 2: Video Testimonials Grid (Based on image_9e9369.jpg) */}
+
+        <div>
+
+          <h2 className="text-2xl font-serif font-bold text-slate-200 mb-8 flex items-center gap-3">
+
+            <span className="w-2 h-6 bg-red-500 rounded-full"></span> Success Stories & Video Logs
+
+          </h2>
+
+
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+            {videoTestimonials.map((video) => (
+
+              <div 
+
+                key={video.id} 
+
+                className="bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden shadow-xl group hover:border-red-500/20 transition-all duration-300"
+
+              >
+
+                {/* Video Preview Container */}
+
+                <div className="relative aspect-[3/4] bg-slate-950 flex items-center justify-center border-b border-slate-800">
+
+                  {/* Badge */}
+
+                  <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md z-10">
+
+                    {video.role}
+
+                  </span>
+
+                  
+
+                  {/* Play Button Icon overlay */}
+
+                  <button className="w-12 h-12 bg-indigo-600/90 hover:bg-indigo-600 rounded-full flex items-center justify-center text-white text-lg shadow-lg z-10 hover:scale-110 transition-transform">
+
+                    ▶
+
+                  </button>
+
+                  
+
+                  <div className="absolute inset-0 bg-slate-900/60 opacity-40 group-hover:opacity-20 transition-opacity"></div>
+
+                </div>
+
+
+
+                {/* Footer Label Metadata */}
+
+                <div className="p-4 space-y-2">
+
+                  <h4 className="font-serif font-bold text-slate-200 text-base leading-tight">
+
+                    {video.location}
+
+                  </h4>
+
+                  <div className="flex items-center gap-2 mt-2">
+
+                    <div className="w-5 h-5 bg-red-600 rounded-full flex items-center justify-center text-[10px] font-bold text-white uppercase">
+
+                      {video.name[0]}
+
+                    </div>
+
+                    <p className="text-xs text-slate-400 font-medium truncate">{video.name}</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  );
+
+};
+
+
+
+export default GalleryPage;
 import { useState } from "react";
 import { Sparkles, Film, Image as ImageIcon } from "lucide-react";
 

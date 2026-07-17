@@ -3,17 +3,12 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { useEffect } from "react";
-import Layout from "@/components/Layout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ServicesPage from "./pages/ServicesPage";
 import GalleryPage from "./pages/GalleryPage";
 import CountriesPage from "./pages/CountriesPage";
 import AboutPage from "./pages/AboutPage";
-import CeoPage from "./pages/CeoPage";
-import PtePage from "./pages/PtePage";
-import IeltsPage from "./pages/IeltsPage";
 
 const queryClient = new QueryClient();
 
@@ -36,52 +31,18 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
+          {/* Main Home Page */}
           {/* Main Home Page - No Layout wrapper (has its own navbar) */}
           <Route path="/" element={<Index />} />
           
-          {/* Detailed Sub-Pages - All wrapped in Layout */}
-          <Route path="/services" element={
-            <Layout>
-              <ServicesPage />
-            </Layout>
-          } />
-          <Route path="/gallery" element={
-            <Layout>
-              <GalleryPage />
-            </Layout>
-          } />
-          <Route path="/countries" element={
-            <Layout>
-              <CountriesPage />
-            </Layout>
-          } />
-          <Route path="/about" element={
-            <Layout>
-              <AboutPage />
-            </Layout>
-          } />
-          <Route path="/ceo" element={
-            <Layout>
-              <CeoPage />
-            </Layout>
-          } />
-          <Route path="/pte" element={
-            <Layout>
-              <PtePage />
-            </Layout>
-          } />
-          <Route path="/ielts" element={
-            <Layout>
-              <IeltsPage />
-            </Layout>
-          } />
+          {/* Detailed Sub-Pages */}
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/countries" element={<CountriesPage />} />
+          <Route path="/about" element={<AboutPage />} />
 
           {/* Catch-all Not Found Route */}
-          <Route path="*" element={
-            <Layout>
-              <NotFound />
-            </Layout>
-          } />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
